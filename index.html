@@ -13,12 +13,12 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: #0049F7; /* Fundo Azul Forte */
+      background: #93A28E; /* Fundo Verde acizentado */
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "Tahoma", sans-serif;
-      color: #FFA6E7; /* Letra Rosa */
+      font-family: "Courier New", sans-serif;
+      color: #000000; /* Letra Preta */
       cursor: pointer;
       padding: 20px;
       overflow: hidden; /* Evita barras de rolagem */
@@ -64,20 +64,36 @@
 
   <script>
     // --- SUA LISTA DE FRASES AQUI ---
-    const frases = [
-      "Eu te amo mais que tudo!",
-      "Você é meu presente de 2026.",
-      "Cada dia com você é incrível.",
-      "Feliz nosso dia!",
-      "Obrigado por existir.",
-      "Você me faz feliz!"
+    const messages = [
+      "Feliz aniversário! 🎉",
+      "Você é meu presente.",
+      "Wawawa.",
+      "Te amo.",
+      "Você é a melhor parte do meu dia."
+      // O TEXTÃO (Use crases ` ` para poder pular linhas)
+      `Te desejo parabéns não apenas pela convenção humana de parabenizar, mas celebro tua existência, essa tua volta ao sol. 
+O mundo é mais bonito com você nele, é lindo há 33 anos. Agradeço ao acaso, aos céus, aos deuses, agradeço que você exista; 
+
+Eu te celebro todos os dias.
+Te amo todos os dias.
+Sinto saudades todos os dias.
+
+Hoje eu só quis deixar registrado, e marcar, nem que seja na nossa conversa do whatsapp, que eu te celebro todos os dias, te amo todos os dias e sinto saudades. 
+Parabéns! <3.`
+      // A DATA (Slide separado)
+      "04 de Fevereiro de 2026",
+    // A ASSINATURA (Slide separado e pequeno)
+      "Da sua pitchuquinha."
     ];
 
     // --- SUA LISTA DE FOTOS (LINKS) AQUI ---
     const imagens = [
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1974",
-      "https://images.unsplash.com/photo-1621621667797-e06afc217fb0?q=80&w=2070",
-      "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2069"
+      "https://i.postimg.cc/02txG6zq/IMG-20241013-WA0001.jpg",
+"https://i.postimg.cc/526JsxzW/IMG-20250102-193827056.jpg",
+"https://i.postimg.cc/sDnyPBMr/IMG-20250315-WA0040.jpg",
+"https://i.postimg.cc/RZNmgMHy/IMG-20250613-WA0191.jpg",
+"https://i.postimg.cc/6pyKM9vP/IMG-20250813-192409204-HDR.jpg",
+"https://i.postimg.cc/YqXkN4hZ/Screenshot-20250816-202352.jpg",
     ];
 
     const fraseEl = document.getElementById("frase");
