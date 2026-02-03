@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Nós</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0049F7; /* Fundo Azul Forte */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Tahoma", sans-serif;
+      color: #FFA6E7; /* Letra Rosa */
+      cursor: pointer;
+      padding: 20px;
+      overflow: hidden; /* Evita barras de rolagem */
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      padding: 24px;
+      border-radius: 20px;
+      /* Efeito de vidro fosco no fundo do texto */
+      background: rgba(255, 255, 255, 0.1); 
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body onclick="changeVibe()">
+
+  <div class="container">
+    <img id="vibeImage" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=2070" alt="foto nossa"/>
+    
+    <h1 id="frase">CLIQUE NA TELA ❤️</h1>
+  </div>
+
+  <script>
+    // --- SUA LISTA DE FRASES AQUI ---
+    const frases = [
+      "Eu te amo mais que tudo!",
+      "Você é meu presente de 2026.",
+      "Cada dia com você é incrível.",
+      "Feliz nosso dia!",
+      "Obrigado por existir.",
+      "Você me faz feliz!"
+    ];
+
+    // --- SUA LISTA DE FOTOS (LINKS) AQUI ---
+    const imagens = [
+      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1974",
+      "https://images.unsplash.com/photo-1621621667797-e06afc217fb0?q=80&w=2070",
+      "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2069"
+    ];
+
+    const fraseEl = document.getElementById("frase");
+    const imagemEl = document.getElementById("vibeImage");
+
+    // ESTADO INICIAL
+    let mostrando = "imagem"; // Começa mostrando imagem e texto
+
+    function changeVibe() {
+      // Sorteia números
+      const randomFrase = Math.floor(Math.random() * frases.length);
+      const randomImg = Math.floor(Math.random() * imagens.length);
+
+      if (mostrando === "texto") {
+        // Se estava mostrando só texto, agora mostra FOTO
+        fraseEl.style.display = "none"; // Esconde texto
+        imagemEl.src = imagens[randomImg]; // Troca a foto
+        imagemEl.style.display = "block"; // Mostra a foto
+        mostrando = "imagem";
+      } else {
+        // Se estava mostrando foto, agora mostra FRASE
+        imagemEl.style.display = "none"; // Esconde foto
+        fraseEl.innerText = frases[randomFrase]; // Troca o texto
+        fraseEl.style.display = "block"; // Mostra o texto
+        mostrando = "texto";
+      }
+    }
+  </script>
+</body>
+</html>
