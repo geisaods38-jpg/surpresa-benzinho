@@ -16,7 +16,7 @@
       align-items: center;
       justify-content: center;
       font-family: 'Courier New', Courier, monospace;
-      color: #000000; /* Letra Preta */
+      color: #000000;
       cursor: pointer;
       padding: 20px;
       overflow: hidden;
@@ -33,7 +33,6 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    /* Estilo para FOTOS */
     img {
       width: 100%;
       max-height: 400px;
@@ -44,7 +43,6 @@
       display: none; 
     }
 
-    /* Estilo para VÍDEOS */
     video {
       width: 100%;
       max-height: 400px;
@@ -56,21 +54,14 @@
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.4rem; /* Diminuí um pouquinho pra caber os textos grandes */
       line-height: 1.5;
       font-weight: 600;
       margin: 0;
       white-space: pre-wrap; 
     }
 
-    .estilo-data {
-        font-size: 1.2rem;
-        font-weight: bold;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin-top: 10px;
-    }
-
+    /* Estilo específico para a ASSINATURA (última frase) */
     .estilo-assinatura {
         font-size: 0.9rem !important; 
         font-style: italic;
@@ -91,10 +82,8 @@
 <body onclick="proximoSlide()">
 
   <div class="container">
-    <img id="foto-tela" src="" alt="foto nossa"/>
-    
+    <img id="foto-tela" src="" alt="foto"/>
     <video id="video-tela" muted loop playsinline></video>
-
     <h1 id="texto-tela"></h1>
   </div>
 
@@ -106,13 +95,17 @@
 
   <script>
     
-    // --- SUAS FRASES ---
+    // LISTA DE FRASES LIMPA
     const mensagens = [
       "Feliz aniversário!",
       "Você é meu presente",
       "Wiwiwi e Wawawa",
+      
+      // Texto com Data 1
       `Vou te sequestrar e carregar comigo pra o Piauí 
-      27/10/2025`,
+27/10/2025`,
+      
+      // Texto Longo 1
       `Conheci uma menina como um enigma que não se decifra
 Pois o que só se admira, e se esquece de buscar resposta
 Não merece sofrer de lógica
@@ -125,8 +118,11 @@ Faremos a vida -como ela é-
 Valer a pena ser vivida, sentida
 No pulsar do coração a cada instante de companhia  
 13/01/2025.`,
+      
       "Te amo",
       "Você é a melhor parte do meu dia",
+      
+      // Texto Longo 2
       `Te desejo parabéns não apenas pela convenção humana de parabenizar, mas celebro tua existência, essa tua volta ao sol. 
 
 O mundo é mais bonito com você nele, é lindo há 33 anos. Agradeço ao acaso, aos céus, aos deuses, agradeço que você exista.
@@ -137,35 +133,40 @@ Sinto saudades todos os dias.
 
 Hoje eu só quis deixar registrado que eu te celebro, te amo e sinto saudades.
 Parabéns! <3`,
+      
       "04 de Fevereiro de 2026",
-    `Talvez pareça exagero dizer que cada instante é sempre tempo para tudo mudar para sempre...
-    Mas minha vida seria completamente outra se não tivéssimos ido ao Jeca naquele dia, nos permitido conversar nas redes...
-    E, há um ano atrás tido nosso primeiro encontro marcado no antigo Miss Brown..
-    Pq agora, seja lá como as coisas acontecerem, para toda minha vida terei te amado e vivido o nosso amor.
-    Tomara que possamos por muito tempo continuar nos amando no presente, nos reencontrando, nos refazendo em cada fase, apesar das distâncias e de qualquer dificuldade. 18/09/2025`,
+      
+      // Texto Longo 3
+      `Talvez pareça exagero dizer que cada instante é sempre tempo para tudo mudar para sempre...
+Mas minha vida seria completamente outra se não tivéssemos ido ao Jeca naquele dia, nos permitido conversar nas redes...
+E, há um ano atrás tido nosso primeiro encontro marcado no antigo Miss Brown..
+Pq agora, seja lá como as coisas acontecerem, para toda minha vida terei te amado e vivido o nosso amor.
+Tomara que possamos por muito tempo continuar nos amando no presente, nos reencontrando, nos refazendo em cada fase, apesar das distâncias e de qualquer dificuldade. 
+18/09/2025`,
+      
       "Te amar é gostoso demais.",
       "Meu sol não brilha sem a luz dos olhos teus",
       "Da sua pitchuquinha"
     ];
 
-    // --- MISTURA DE FOTOS E VÍDEOS ---
+    // LISTA DE MÍDIA
     const midia = [
       "https://i.postimg.cc/02txG6zq/IMG-20241013-WA0001.jpg",
       "https://i.postimg.cc/526JsxzW/IMG-20250102-193827056.jpg",
       "https://i.postimg.cc/5tFjX59R/0bfc407b7399d1ef192727f605a9d117.jpg",
       "https://i.postimg.cc/25B31djt/360f3ad589742327c31966c15db23aec.jpg",
       "https://i.postimg.cc/YSmjvN2Z/6f79c410765079461f0e9f1f37b1e0b8.jpg",
-"https://i.postimg.cc/mrFhP3Zq/73cbb51875f14df1d8f488370c99b070.jpg",
-      "video.mp4",  // <--- IMPORTANTE: TROQUE PELO NOME DO SEU VÍDEO SE FOR DIFERENTE!
+      "https://i.postimg.cc/mrFhP3Zq/73cbb51875f14df1d8f488370c99b070.jpg",
+      
+      "video.mp4", // O vídeo entra aqui
       
       "https://i.postimg.cc/sDnyPBMr/IMG-20250315-WA0040.jpg",
       "https://i.postimg.cc/RZNmgMHy/IMG-20250613-WA0191.jpg",
       "https://i.postimg.cc/6pyKM9vP/IMG-20250813-192409204-HDR.jpg",
       "https://i.postimg.cc/YqXkN4hZ/Screenshot-20250816-202352.jpg",
-      "https://i.postimg.cc/zfR3ywD2/4eadc575c530970df7e7f0204b676e9f.jpg",
+      "https://i.postimg.cc/zfR3ywD2/4eadc575c530970df7e7f0204b676e9f.jpg"
     ];
 
-    // LÓGICA DO SITE
     let etapaAtual = 0; 
     const imgEl = document.getElementById("foto-tela");
     const vidEl = document.getElementById("video-tela");
@@ -179,10 +180,14 @@ Parabéns! <3`,
     }
 
     function atualizarTela() {
-      // Se for PAR, mostra TEXTO
       if (etapaAtual % 2 === 0) {
+        // MOSTRA TEXTO
         let indiceTexto = (etapaAtual / 2);
-        if(indiceTexto >= mensagens.length) indiceTexto = mensagens.length - 1;
+        
+        // Trava na última frase
+        if(indiceTexto >= mensagens.length) {
+            indiceTexto = mensagens.length - 1;
+        }
 
         imgEl.style.display = "none";
         vidEl.style.display = "none"; 
@@ -191,26 +196,27 @@ Parabéns! <3`,
         txtEl.style.display = "block";
         txtEl.innerText = mensagens[indiceTexto];
         
+        // Remove estilos antigos e aplica novos
         txtEl.className = ""; 
-        if (indiceTexto === mensagens.length - 1) txtEl.classList.add("estilo-assinatura");
-        else if (indiceTexto === mensagens.length - 2) txtEl.classList.add("estilo-data");
+        
+        // Se for a ÚLTIMA frase (Assinatura), fica pequena
+        if (indiceTexto === mensagens.length - 1) {
+            txtEl.classList.add("estilo-assinatura");
+        }
 
-      } 
-      // Se for ÍMPAR, mostra FOTO ou VÍDEO
-      else {
+      } else {
+        // MOSTRA MÍDIA (FOTO ou VÍDEO)
         let indiceMidia = Math.floor(etapaAtual / 2) % midia.length;
         let arquivoAtual = midia[indiceMidia];
 
         txtEl.style.display = "none";
         
-        // Verifica se é vídeo (.mp4)
         if (arquivoAtual.endsWith(".mp4")) {
             imgEl.style.display = "none";
             vidEl.src = arquivoAtual;
             vidEl.style.display = "block";
-            vidEl.play(); 
+            vidEl.play().catch(e => console.log("Erro play video")); 
         } else {
-            // É foto
             vidEl.style.display = "none";
             vidEl.pause();
             imgEl.src = arquivoAtual;
@@ -219,10 +225,10 @@ Parabéns! <3`,
       }
     }
 
-    // --- SEU CÓDIGO PARA TOCAR A MÚSICA NO PRIMEIRO CLIQUE ---
+    // Tenta tocar música ao clicar
     document.body.addEventListener('click', function() {
         var audio = document.getElementById("som");
-        audio.play().catch(error => console.log("O navegador bloqueou o autoplay: " + error));
+        if(audio) audio.play().catch(e => console.log("Erro musica"));
     }, { once: true });
 
   </script>
